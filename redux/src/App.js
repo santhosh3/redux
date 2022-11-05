@@ -1,21 +1,14 @@
 import React from 'react'
-import {connect} from 'react-redux';
-import {InAction} from './Action';
-import {DecAction} from './Action'
+import Card from './Card';
+import Badge from './Badge';
 
-function App({local_varaiable,InAction,DecAction}) {
+const App = () => {
   return (
     <div>
-      <center>
-      <h1>{local_varaiable}</h1><br/>
-      <button onClick={InAction}>Increment</button>
-      <button onClick={DecAction}>Decrement</button>
-      </center>
+        <Badge />
+        <Card />
     </div>
   )
 }
-const mapStateToProps = state => ({
-  local_varaiable : state
-})
 
-export default connect(mapStateToProps,{InAction,DecAction})(App)
+export default App
