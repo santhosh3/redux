@@ -1,12 +1,17 @@
 import React from 'react'
-import Card from './Card';
-import Badge from './Badge';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Home from './Home';
+import Orders from './Orders';
 
-const App = () => {
+function App() {
   return (
     <div>
-        <Badge />
-        <Card />
+      <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/orders" element={<Orders/>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
