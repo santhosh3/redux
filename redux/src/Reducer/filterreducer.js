@@ -3,13 +3,13 @@ const initialState = {
 }
 
 export default function filter_name(state=initialState,action){
-    const {type,payload} = action
+    const{type,payload} = action
     switch(type){
         case "SETFILTER":
-            return {...state,filter_name:payload}
-        case "RESETFILTER":
-            return {...state,filter_name:"All Items"}
+            return {...state, filter_name:payload}
+        case "RESETFILTERNAME":
+            return {...state, filter_name:"All Items"}
         default:
-            return state
+            return state;
     }
 }

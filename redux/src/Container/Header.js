@@ -1,16 +1,16 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {Link} from "react-router-dom"
 
 function Header({count}) {
   return (
     <div>
-      <nav className='navbar navbar-light bg-light'>
-        <a className='navbar-brand'>Restaurant</a>
+      <div className='navbar navbar-light bg-light'>
+        <a className='navar-brand'>Resturant</a>
         <button className='btn btn-primary'>
-         <Link to='/orders' style={{color:"white",textDecoration:"none"}} >Orders</Link> <span className='badge badge-light'>{count}</span>
+          <Link to='/orders' style={{color:'white', textDecoration:'none'}}>Orders</Link><span className='badge bg-secondary'>{count}</span>
         </button>
-      </nav>
+      </div>
     </div>
   )
 }
@@ -19,4 +19,4 @@ const mapStateToProps = state => ({
   count : state.orderreducer.length
 })
 
-export default connect(mapStateToProps) (Header)
+export default connect(mapStateToProps)(Header)

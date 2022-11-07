@@ -1,20 +1,18 @@
-import React, { useState } from 'react'
+import React,{useState}from 'react'
 import {connect} from 'react-redux'
-import {setfilter,resetfilter} from '../Action/index';
+import {setfilter,resetfilter} from '../Action'
 
-function Filter({filter_name,setfilter,resetfilter}) {
-  const prod = ["All Items", "Rice Items", "Cold Drinks", "Pizza", "Hot Drinks"];
+function Filter({setfilter,resetfilter,filter_name}) {
+  const prod = ["All Items", "Pizza", "Cold Drinks","Hot Drinks","Rice Items"]
   return (
     <div>
-      <center className='m-3'>
-        <span className='h4 m-2'>
-            Filter:
-        </span>
-        <select name='filter' className='p-1' onChange={(e) => setfilter(e.target.value)}>
+      <center>
+        <span className='h4'>Filter:</span>
+        <select className='filter' onChange={(e) => setfilter(e.target.value)}>
             {
-                prod.map((item,index) => (
-                    <option value={item} key={index}>{item}</option>
-                ))
+             prod.map((item,index) => (
+                <option value={item} key={index}>{item}</option>
+            ))
             }
         </select>
       </center>
@@ -23,7 +21,6 @@ function Filter({filter_name,setfilter,resetfilter}) {
 }
 
 const mapStateToProps = state => ({
-    filter_name:state.filterreducer.filter_name
+  filter_name : state.filterreducer.filter_name
 })
-
-export default connect(mapStateToProps,{setfilter})(Filter)
+export default connect(mapStateToProps,{setfilter,resetfilter})(Filter)
